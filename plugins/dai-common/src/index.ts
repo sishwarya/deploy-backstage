@@ -1,1 +1,1 @@
-export { daiCommonPlugin, DaiCommonPage } from './plugin';
+export * from './constants';

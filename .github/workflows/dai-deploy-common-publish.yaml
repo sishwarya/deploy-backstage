@@ -1,6 +1,13 @@
 name: Github Publish dai-deploy-common plugin
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    push:
+      branches: [ "main" ]
+      paths-ignore:
+        # Ignore changes to READMEs and other Markdown.
+        - 'plugins/dai-common/**/README*'
+        - 'plugins/dai-common/**/*.md'
 
 jobs:
   call-ci-workflow:

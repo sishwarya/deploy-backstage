@@ -14,3 +14,12 @@ jobs:
     uses: ./.github/workflows/reusable-build.yaml
     with:
       plugin-path: ./plugins/dai-common
+  version-tag:
+    uses: ./.github/workflows/version.yaml
+    needs: [ call-ci-workflow ]
+    with:
+      plugin-path: ./plugins/dai-common
+      plugin: dai-common
+      tag-skip: true
+      default-release: prerelease
+      skip-release: true

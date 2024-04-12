@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # necessary to get newly created tag above
-          ref: ${{ github.ref_name }}
+          ref: 'main'
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -46,10 +46,15 @@ jobs:
           tag-prefix:  '${{ inputs.plugin }}/v'
           default: '${{ inputs.default-release }}'
           skip-tag:  '${{ inputs.tag-skip }}'
-          rc-wording: 'alpha, RELEASE, BETA'
           major-wording: 'MAJOR'
           minor-wording: 'MINOR'
           check-last-commit-only: true
+          ## Providing patch-wording will override commits defaulting to a patch bump.
+          patch-wording: 'PATCH'
+          preid: 'alpha'
+          ## rc-wording will override the 'preid'
+          rc-wording: ''
+          target-branch: 'main'
 
   create-release:
     name: Create GitHub Release
@@ -61,7 +66,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # necessary to get newly created tag above
-          ref: ${{ github.ref_name }}
+          ref: 'main'
       - name: New Version
         working-directory: ${{ inputs.plugin-path }}
         env:

@@ -22,18 +22,18 @@ jobs:
       with:
         node-version: '18.x'
         registry-url: 'https://npm.pkg.github.com'
-    - name: dai-deploy-common - Install dependencies
+    - name: dai-common - Install dependencies
       working-directory: ./plugins/dai-common
       run: yarn install
-    - name: dai-deploy-common - Run tsc
+    - name: dai-common - Run tsc
       working-directory: ./plugins/dai-common
       run: yarn tsc
-    - name: dai-deploy-common - Run lint
+    - name: dai-common - Run lint
       working-directory: ./plugins/dai-common
       run: yarn lint  
-    - name: dai-deploy-common - Build
+    - name: dai-common - Build
       working-directory: ./plugins/dai-common
       run: yarn build
-    - name: dai-deploy-common - Run tests  
+    - name: dai-common - Run tests
       working-directory: ./plugins/dai-common
       run: yarn test

@@ -19,7 +19,6 @@ on:
         required: true
         type: boolean
 
-
 jobs:
   bump-version:
     name: Bump Version & Create GitHub Tag

@@ -1,0 +1,13 @@
+---
+apiVersion: xl-deploy/v1
+kind: Infrastructure
+spec:
+- name: Infrastructure/tool/dev/tool-xval5
+  type: k8s.Master
+  apiServerURL: https://10.235.64.244:443
+  isAKS: true
+  tenantId: ef9*****5784
+  clientId: 398*****2c1
+  subscriptionId: 6fb*****6b0
+  resourceGroup: euho-d-rg-xval5
+  aksClusterName: euho-d-aks-xval5-cluster

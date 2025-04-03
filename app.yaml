@@ -1,0 +1,9 @@
+---
+apiVersion: xl-deploy/v1
+kind: Applications
+spec:
+- name: Applications/AppBackstage/1.0.0/file
+  type: file.File
+  fileEncodings:
+    ".+\\.properties": ISO-8859-1
+  file: !file "artifacts/Applications/AppBackstage/1.0.0/file/SampleT.zip"
